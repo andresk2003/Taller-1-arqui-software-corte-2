@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+  PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!--<settings>
+        <setting name="logImpl" value="LOG4J"/>        
+    </settings>-->
+    
+    <properties resource="config.properties">
+    </properties>
+    <typeAliases>
+      <typeAlias type="edu.unisabana.dyas.samples.entities.Cliente" alias="Cliente"/>
+      <typeAlias type="edu.unisabana.dyas.samples.entities.Item" alias="Item"/>
+      <typeAlias type="edu.unisabana.dyas.samples.entities.ItemRental" alias="ItemRental"/>
+    </typeAliases>
+
+    <environments default="development">
+       <environment id="development">
+           <transactionManager type="JDBC"/>
+              <dataSource type="POOLED">
+                  <property name="driver" value="org.sqlite.JDBC"/>
+                   <property name="url" value="jdbc:sqlite:bd.sqlite3"/>
+                   <property name="username" value=""/>
+                   <property name="password" value=""/>
+              </dataSource>
+        </environment>
+    </environments>
+
+        
+    <mappers>
+        <mapper resource="mappers/ClienteMapper.xml"></mapper>
+        <mapper resource="mappers/ItemMapper.xml"></mapper>
+        <mapper resource="mappers/TipoItemMapper.xml"></mapper>        
+    </mappers> 
+        
+        
+</configuration>
